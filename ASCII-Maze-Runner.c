@@ -14,6 +14,9 @@
 #define GREEN "\x1b[1m\033[92m"
 #define GRAY "\x1b[90m"
 #define YELLOW "\x1b[33m"
+#define PURPLE "\033[30;35m"
+#define PINK "\033[1;95m"
+#define CYAN "\033[36m"
 #define BOLD "\x1b[1m"
 #define NO_EFFECT "\x1b[0m"
 #define HIDE_CURSOR "\e[?25l"
@@ -27,6 +30,7 @@
 
 typedef struct player_s {
     int Y, X, gameChar, level, status;
+    char color[50];
 } Player;
 
 typedef struct scoreboard_s {
@@ -188,6 +192,46 @@ void generateGrid() {
     }
 }
 
+char *getDateTime() {
+    int day, month, year, hour, minute, second;
+    time_t now;
+    struct tm *current_time;
+    time(&now);
+    current_time = localtime(&now);
+    day = current_time->tm_mday;
+    month = current_time->tm_mon + 1;
+    year = current_time->tm_year + 1900;
+    hour = current_time->tm_hour;
+    minute = current_time->tm_min;
+    second = current_time->tm_sec;
+
+    static char dateTime[40];
+    sprintf(dateTime, "%02d/%02d/%04d %02d:%02d:%02d", day, month, year, hour, minute, second);
+    return dateTime;
+}
+
+char getYesNo() {
+    char key, c;
+    int i = 0;
+    while (c != 13) {
+        c = getch();
+        if (c == 'y' || c == 'n') c -= 32;
+        if ((c == 'Y' || c == 'N') && i == 0) {
+            printf("%c", c);
+            key = c;
+            i++;
+        } else if (c == 8 && i > 0) {
+            printf("%c %c", c, c);
+            key = ' ';
+            i--;
+        }
+        if (c == 3) exit(0);
+        if (c == 27) return 'E';
+        if (c == 13) i == 0 ? c = 0 : printf("\n");
+    }
+    return key;
+}
+
 void printGrid(char grid[N][N]) {
     for (int i = 0; i < N; i++) {
         for (int j = 0; j < N; j++) {
@@ -197,7 +241,7 @@ void printGrid(char grid[N][N]) {
             if (c == '#') printf(YELLOW);
             if (c == 'N') printf(GREEN);
             if (c == hero.gameChar) {
-                (hero.status) ? printf(BLUE) : printf(RED);
+                (hero.status) ? printf(hero.color) : printf(RED);
             }
             if (c == '?') printf(GRAY);
             if (c == '.') printf(NO_EFFECT);
@@ -224,7 +268,7 @@ void printPlayer(int pastY, int pastX, int moveY, int moveX) {
         CURSOR_LEFT(4);
     }
 
-    printf("%s%c%s ", BLUE, hero.gameChar, NO_EFFECT);
+    printf("%s%c%s ", hero.color, hero.gameChar, NO_EFFECT);
 
     CURSOR_DOWN(N - (pastY + moveY));
 }
@@ -290,20 +334,19 @@ int move() {
         break;
     case '1':
         clearScreen();
-        printGrid(hiddenGrid);
-        printf("(Tekan apapun untuk kembali.)");
-        printf("\nLEVEL %d", hero.level);
-        getch();
-        clearScreen();
-        printGrid(grid);
-        break;
-    case '2':
-        clearScreen();
         cheatToggle = !cheatToggle;
         printGrid(grid);
         printMsg(1);
         printf("\nLEVEL %d", hero.level);
         CURSOR_UP(1);
+        break;
+    case 27:
+        printf("\n\n\nYakin ingin mengakhiri permainan? (Y/N) ");
+        char confirm;
+        confirm = getYesNo();
+        if (confirm == 'Y') return 0;
+        CLEAR_ROW(1);
+        CURSOR_UP(3);
         break;
     case 3:
         exit(0);
@@ -404,84 +447,6 @@ int chooseOption(char *option[], int length) {
     return code;
 }
 
-char *getDateTime() {
-    int day, month, year, hour, minute, second;
-    time_t now;
-    struct tm *current_time;
-    time(&now);
-    current_time = localtime(&now);
-    day = current_time->tm_mday;
-    month = current_time->tm_mon + 1;
-    year = current_time->tm_year + 1900;
-    hour = current_time->tm_hour;
-    minute = current_time->tm_min;
-    second = current_time->tm_sec;
-
-    static char dateTime[40];
-    sprintf(dateTime, "%02d/%02d/%04d %02d:%02d:%02d", day, month, year, hour, minute, second);
-    return dateTime;
-}
-
-char getYesNo() {
-    char key, c;
-    int i = 0;
-    while (c != 13) {
-        c = getch();
-        if (c == 'y' || c == 'n') c -= 32;
-        if ((c == 'Y' || c == 'N') && i == 0) {
-            printf("%c", c);
-            key = c;
-            i++;
-        } else if (c == 8 && i > 0) {
-            printf("%c %c", c, c);
-            key = ' ';
-            i--;
-        }
-        if (c == 3) exit(0);
-        if (c == 27) return 'E';
-        if (c == 13) i == 0 ? c = 0 : printf("\n");
-    }
-    return key;
-}
-
-void playGame() {
-    printf(HIDE_CURSOR);
-    hero.Y = N / 2;
-    hero.X = N / 2;
-    hero.level = 0;
-    hero.gameChar = '>';
-    hero.status = 1;
-    do {
-        clearScreen();
-        generateHiddenGrid();
-        generateGrid();
-        cheatToggle = 0;
-        printGrid(grid);
-        printMsg(1);
-        printf("\nLEVEL %d\r", hero.level);
-        CURSOR_UP(1);
-
-        while (move())
-            ;
-        if (checkWinLose(hero.Y, hero.X) == -1) {
-            hero.status = 0;
-            strcpy(scoreboard[sbIndex].dateTime, getDateTime());
-            scoreboard[sbIndex].level = hero.level;
-            updateScoreboardDB();
-            sbIndex++;
-            clearScreen();
-            printGrid(hiddenGrid);
-            printMsg(2);
-            printf("LEVEL %d\n", hero.level);
-            printf("%s> Kembali%s", RED, NO_EFFECT);
-            while (getch() != 13)
-                ;
-        } else {
-            hero.level++;
-        }
-    } while (hero.status);
-}
-
 void showScoreboard() {
     int highScore = 0;
     for (int i = 0; i < sbIndex; i++) {
@@ -523,10 +488,86 @@ void showScoreboard() {
     } while (code != lengthOption - 1);
 }
 
+void chooseColor() {
+    int code;
+    char *option[] = {
+        "\033[34mBiru\033[0m",       // Biru
+        "\033[32mHijau\033[0m",      // Hijau
+        "\033[30;35mUngu\033[0m",    // Ungu
+        "\033[1;95mPink\033[0m",     // Pink
+        "\033[36mCyan\033[0m",       // Cyan
+        "\033[33;91mOrange\033[0m",  // Orange
+    };
+    int lengthOption = sizeof(option) / sizeof(option[0]);
+    clearScreen();
+    printf("%sPilih Warna Karakter!%s\n", BOLD, NO_EFFECT);
+    code = chooseOption(option, lengthOption);
+    clearScreen();
+    switch (code) {
+    case 0:
+        strcpy(hero.color, BLUE);
+        break;
+    case 1:
+        strcpy(hero.color, GREEN);
+        break;
+    case 2:
+        strcpy(hero.color, PURPLE);
+        break;
+    case 3:
+        strcpy(hero.color, PINK);
+        break;
+    case 4:
+        strcpy(hero.color, CYAN);
+        break;
+    case 5:
+        strcpy(hero.color, ORANGE);
+        break;
+    }
+}
+
+void playGame() {
+    printf(HIDE_CURSOR);
+    hero.Y = N / 2;
+    hero.X = N / 2;
+    hero.level = 0;
+    hero.gameChar = '>';
+    hero.status = 1;
+    do {
+        clearScreen();
+        generateHiddenGrid();
+        generateGrid();
+        cheatToggle = 0;
+        printGrid(grid);
+        printMsg(1);
+        printf("\nLEVEL %d\r", hero.level);
+        CURSOR_UP(1);
+
+        while (move())
+            ;
+        if (checkWinLose(hero.Y, hero.X) == 1) {
+            hero.level++;
+        } else {
+            hero.status = 0;
+            strcpy(scoreboard[sbIndex].dateTime, getDateTime());
+            scoreboard[sbIndex].level = hero.level;
+            updateScoreboardDB();
+            sbIndex++;
+            clearScreen();
+            printGrid(hiddenGrid);
+            printMsg(2);
+            printf("LEVEL %d\n", hero.level);
+            printf("%s> Kembali%s", RED, NO_EFFECT);
+            while (getch() != 13)
+                ;
+        }
+    } while (hero.status);
+}
+
 void menu() {
     int code;
     char *option[] = {
         "START GAME",
+        "Pilih Warna Karakter",
         "Lihat Scoreboard",
         "Exit",
     };
@@ -541,15 +582,19 @@ void menu() {
             playGame();
             break;
         case 1:
-            showScoreboard();
+            chooseColor();
             break;
         case 2:
+            showScoreboard();
+            break;
+        case 3:
             exit(0);
         }
     } while (code != lengthOption - 1);
 }
 
 int main() {
+    strcpy(hero.color, BLUE);
     printf(HIDE_CURSOR);
     importDB(&sbIndex);
     menu();
