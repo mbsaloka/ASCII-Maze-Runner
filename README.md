@@ -80,7 +80,7 @@
 
 ## Screenshot Aplikasi
 ### Menu Utama
-![image](https://github.com/mbsaloka/ASCII-Maze-Runner/assets/110384828/435bf7b0-a3d6-4168-a3da-bf1f12d236eb)
+![image](https://github.com/mbsaloka/ASCII-Maze-Runner/assets/110384828/e2f43cca-3cdc-43f0-b69a-4c6e0ef18bb3)
 
 ### In Game
 ![image](https://github.com/mbsaloka/ASCII-Maze-Runner/assets/110384828/cb5e60f2-0749-429b-9cb2-e257bd09765a)
@@ -96,12 +96,12 @@
 ### Cheat Aktif
 ![image](https://github.com/mbsaloka/ASCII-Maze-Runner/assets/110384828/4e0469d1-2679-47c6-bba4-c57764510511)
 
+### Pilih Warna Karakter
+![image](https://github.com/mbsaloka/ASCII-Maze-Runner/assets/110384828/4cf017cb-8d36-4963-b589-c96a8cb6e311)
+
 ### Scoreboard
 ![image](https://github.com/mbsaloka/ASCII-Maze-Runner/assets/110384828/7df55589-f041-4273-8846-76c5bb81dc69)
 
 ## Pengembang
 Proyek ini dikembangkan oleh:  
 [Buyung Saloka](https://instagram.com/mbsaloka)
-
-
-
