@@ -20,7 +20,7 @@
 ## Cara Instalasi
 ### Quick Run
 #### Dependencies:
-- Download executable file (ASCII-Maze-Runner-v1.0.0.zip) [di sini]().
+- Download executable file (ASCII-Maze-Runner-v1.0.0.zip) [di sini](https://github.com/mbsaloka/ASCII-Maze-Runner/releases/tag/v1.0.0).
 - Karena program memanfaatkan ANSI escape sequences untuk mendukung tampilan, aktifkan ANSI escape sequences terlebih dahulu dengan cara mengetikkan perintah berikut ini di CMD.
   ```
   reg add HKCU\Console /v VirtualTerminalLevel /t REG_DWORD /d 1
@@ -40,7 +40,7 @@
 
 ### Development
 #### Dependencies:
-- [Clone source code]().
+- [Clone source code](https://github.com/mbsaloka/ASCII-Maze-Runner.git).
 - Pastikan compiler C (seperti GCC) sudah terinstal di sistem Anda.
 - Karena program memanfaatkan ANSI escape sequences untuk mendukung tampilan, aktifkan ANSI escape sequences terlebih dahulu dengan cara mengetikkan perintah berikut ini di CMD.
   ```
