@@ -1,4 +1,4 @@
-# ASCII Maze Runner : Endless Level Maze Game in C
+![image](https://github.com/mbsaloka/ASCII-Maze-Runner/assets/110384828/cc4aed53-2c14-48ce-ba45-bd549fc91296)![image](https://github.com/mbsaloka/ASCII-Maze-Runner/assets/110384828/b33d59c6-a516-4cc0-8a36-9e1c21629956)# ASCII Maze Runner : Endless Level Maze Game in C
 - [Deskripsi](#deskripsi)
 - [Fitur Utama](#fitur-utama)
 - [Cara Instalasi](#cara-instalasi)
@@ -30,9 +30,9 @@
   reg delete HKCU\Console /v VirtualTerminalLevel /f
   ```
   - Tampilan sebelum ANSI escape sequences diaktifkan:  
-    ![image](https://github.com/mbsaloka/ASCII-Maze-Runner/assets/110384828/0f1306f3-4b6d-4167-bb8b-2633c6c87860)
+    ![image](https://github.com/mbsaloka/ASCII-Maze-Runner/assets/110384828/a924aa7f-ba07-45e8-95d2-82da41229d2a)
   - Tampilan setelah ANSI escape sequences diaktifkan:  
-    ![image](https://github.com/mbsaloka/ASCII-Maze-Runner/assets/110384828/35084ef1-a212-4f3a-892c-1db6b12b34da)
+    ![image](https://github.com/mbsaloka/ASCII-Maze-Runner/assets/110384828/9a700afe-7bf3-4ccf-b7c6-6fc60b855dae)
 
 #### Instalasi:
 - Ekstrak file .zip yang sebelumnya didownload.
@@ -51,9 +51,9 @@
   reg delete HKCU\Console /v VirtualTerminalLevel /f
   ```
   - Tampilan sebelum ANSI escape sequences diaktifkan:  
-    ![image](https://github.com/mbsaloka/ASCII-Maze-Runner/assets/110384828/0f1306f3-4b6d-4167-bb8b-2633c6c87860)
+    ![image](https://github.com/mbsaloka/ASCII-Maze-Runner/assets/110384828/1b626591-5beb-4684-aeac-5470b578bc12)
   - Tampilan setelah ANSI escape sequences diaktifkan:  
-    ![image](https://github.com/mbsaloka/ASCII-Maze-Runner/assets/110384828/35084ef1-a212-4f3a-892c-1db6b12b34da)
+    ![image](https://github.com/mbsaloka/ASCII-Maze-Runner/assets/110384828/dc65f973-9a02-4307-95fe-d7404b8dc242)
 
 #### Instalasi:
 - Ekstrak file .zip yang sebelumnya didownload.
