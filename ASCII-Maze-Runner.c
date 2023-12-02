@@ -14,8 +14,7 @@
 #define GREEN "\x1b[1m\033[92m"
 #define GRAY "\x1b[90m"
 #define YELLOW "\x1b[33m"
-#define PURPLE "\033[30;35m"
-#define PINK "\033[1;95m"
+#define PURPLE "\033[1;95m"
 #define CYAN "\033[36m"
 #define BOLD "\x1b[1m"
 #define NO_EFFECT "\x1b[0m"
@@ -226,7 +225,10 @@ char getYesNo() {
             i--;
         }
         if (c == 3) exit(0);
-        if (c == 27) return 'E';
+        if (c == 27) {
+            printf("\n");
+            return 'N';
+        }
         if (c == 13) i == 0 ? c = 0 : printf("\n");
     }
     return key;
@@ -493,8 +495,7 @@ void chooseColor() {
     char *option[] = {
         "\033[34mBiru\033[0m",       // Biru
         "\033[32mHijau\033[0m",      // Hijau
-        "\033[30;35mUngu\033[0m",    // Ungu
-        "\033[1;95mPink\033[0m",     // Pink
+        "\033[1;95mUngu\033[0m",     // Ungu
         "\033[36mCyan\033[0m",       // Cyan
         "\033[33;91mOrange\033[0m",  // Orange
     };
@@ -514,12 +515,9 @@ void chooseColor() {
         strcpy(hero.color, PURPLE);
         break;
     case 3:
-        strcpy(hero.color, PINK);
-        break;
-    case 4:
         strcpy(hero.color, CYAN);
         break;
-    case 5:
+    case 4:
         strcpy(hero.color, ORANGE);
         break;
     }
