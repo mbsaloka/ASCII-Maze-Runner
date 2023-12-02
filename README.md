@@ -1,4 +1,4 @@
-![image](https://github.com/mbsaloka/ASCII-Maze-Runner/assets/110384828/cc4aed53-2c14-48ce-ba45-bd549fc91296)![image](https://github.com/mbsaloka/ASCII-Maze-Runner/assets/110384828/b33d59c6-a516-4cc0-8a36-9e1c21629956)# ASCII Maze Runner : Endless Level Maze Game in C
+# ASCII Maze Runner : Endless Level Maze Game in C
 - [Deskripsi](#deskripsi)
 - [Fitur Utama](#fitur-utama)
 - [Cara Instalasi](#cara-instalasi)
@@ -86,7 +86,6 @@
 ![image](https://github.com/mbsaloka/ASCII-Maze-Runner/assets/110384828/cb5e60f2-0749-429b-9cb2-e257bd09765a)
 ![image](https://github.com/mbsaloka/ASCII-Maze-Runner/assets/110384828/99e46a74-94d8-44a5-8862-993d3812a032)
 ![image](https://github.com/mbsaloka/ASCII-Maze-Runner/assets/110384828/b7655579-4cb2-40f2-9930-ef34f47a555c)
-![image](https://github.com/mbsaloka/ASCII-Maze-Runner/assets/110384828/8ce549a8-e386-4658-8a6c-563cecc03974)
 ![image](https://github.com/mbsaloka/ASCII-Maze-Runner/assets/110384828/b0ceb6a2-14cb-497e-ac14-7acd755612fb)
 
 ### Game Over
@@ -94,6 +93,7 @@
 ![image](https://github.com/mbsaloka/ASCII-Maze-Runner/assets/110384828/0cd19946-1584-4920-b10a-05e21b52c548)
 
 ### Cheat Aktif
+![image](https://github.com/mbsaloka/ASCII-Maze-Runner/assets/110384828/8ce549a8-e386-4658-8a6c-563cecc03974)
 ![image](https://github.com/mbsaloka/ASCII-Maze-Runner/assets/110384828/4e0469d1-2679-47c6-bba4-c57764510511)
 
 ### Pilih Warna Karakter
