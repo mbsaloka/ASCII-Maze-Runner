@@ -14,7 +14,7 @@
 #define GREEN "\x1b[1m\033[92m"
 #define GRAY "\x1b[90m"
 #define YELLOW "\x1b[33m"
-#define PURPLE "\033[1;95m"
+#define PINK "\033[1;95m"
 #define CYAN "\033[36m"
 #define BOLD "\x1b[1m"
 #define NO_EFFECT "\x1b[0m"
@@ -238,7 +238,7 @@ void printGrid(char grid[N][N]) {
     for (int i = 0; i < N; i++) {
         for (int j = 0; j < N; j++) {
             char c = grid[i][j];
-            if (cheatToggle && c == '?') c = hiddenGrid[i][j];
+            if (cheatToggle && (c == '?' || c == '.')) c = hiddenGrid[i][j];
             if (i == hero.Y && j == hero.X) c = hero.gameChar;
             if (c == '#') printf(YELLOW);
             if (c == 'N') printf(GREEN);
@@ -258,7 +258,7 @@ void printGrid(char grid[N][N]) {
 void printPlayer(int pastY, int pastX, int moveY, int moveX) {
     CURSOR_UP(N - pastY);
     if (pastX > 0) CURSOR_RIGHT(pastX * 2);
-    printf(". ");
+    printf("%c ", cheatToggle ? '+' : '.');
 
     if (moveY < 0) {
         CURSOR_UP(1);
@@ -297,6 +297,7 @@ int checkWinLose(int y, int x) {
     if (hiddenGrid[y][x] == '*') {
         hero.Y = y;
         hero.X = x;
+
         return -1;
     }
     return 0;
@@ -358,9 +359,9 @@ int move() {
     if (moveCode == 'W' || moveCode == 'A' || moveCode == 'S' || moveCode == 'D') {
         if (nextCol >= 0) {
             if (checkValidMove(&nextRow, &nextCol)) {
-                if (checkWinLose(nextRow, nextCol)) return 0;
-
                 grid[hero.Y][hero.X] = '.';
+                hiddenGrid[hero.Y][hero.X] = '+';
+                if (checkWinLose(nextRow, nextCol)) return 0;
                 grid[nextRow][nextCol] = hero.gameChar;
 
                 printPlayer(hero.Y, hero.X, nextRow - hero.Y, nextCol - hero.X);
@@ -475,16 +476,16 @@ void showScoreboard() {
         code = chooseOption(option, lengthOption);
         if (code == 0) {
             printf("\nYakin ingin mereset scoreboard? (Y/N) ");
-            char yesNo = getYesNo();
-            if (yesNo == 'Y') {
+            char confirm = getYesNo();
+            if (confirm == 'Y') {
                 remove("scoreboard.bin");
                 FILE *file = fopen("scoreboard.bin", "w");
                 sbIndex = 0;
                 clearScreen();
                 showScoreboard();
                 return;
-            } else if (yesNo == 'E') {
-                exit(0);
+            } else {
+                CLEAR_ROW(2);
             }
         }
     } while (code != lengthOption - 1);
@@ -495,7 +496,7 @@ void chooseColor() {
     char *option[] = {
         "\033[34mBiru\033[0m",       // Biru
         "\033[32mHijau\033[0m",      // Hijau
-        "\033[1;95mUngu\033[0m",     // Ungu
+        "\033[95mPink\033[0m",       // Pink
         "\033[36mCyan\033[0m",       // Cyan
         "\033[33;91mOrange\033[0m",  // Orange
     };
@@ -512,7 +513,7 @@ void chooseColor() {
         strcpy(hero.color, GREEN);
         break;
     case 2:
-        strcpy(hero.color, PURPLE);
+        strcpy(hero.color, PINK);
         break;
     case 3:
         strcpy(hero.color, CYAN);
@@ -555,8 +556,11 @@ void playGame() {
             printMsg(2);
             printf("LEVEL %d\n", hero.level);
             printf("%s> Kembali%s", RED, NO_EFFECT);
-            while (getch() != 13)
-                ;
+            char confirm;
+            do {
+                confirm = getch();
+                if (confirm == 3) exit(0);
+            } while (confirm != 13 && confirm != 27);
         }
     } while (hero.status);
 }
