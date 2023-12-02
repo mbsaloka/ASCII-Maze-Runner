@@ -20,7 +20,7 @@
 ## Cara Instalasi
 ### Quick Run
 #### Dependencies:
-- Download executable file (ASCII-Maze-Runner-v1.0.0.zip) [di sini]().
+- Download executable file (ASCII-Maze-Runner-v1.0.0.zip) [di sini](https://github.com/mbsaloka/ASCII-Maze-Runner/releases/tag/v1.0.0).
 - Karena program memanfaatkan ANSI escape sequences untuk mendukung tampilan, aktifkan ANSI escape sequences terlebih dahulu dengan cara mengetikkan perintah berikut ini di CMD.
   ```
   reg add HKCU\Console /v VirtualTerminalLevel /t REG_DWORD /d 1
@@ -30,9 +30,9 @@
   reg delete HKCU\Console /v VirtualTerminalLevel /f
   ```
   - Tampilan sebelum ANSI escape sequences diaktifkan:  
-    ![image](https://github.com/mbsaloka/ASCII-Maze-Runner/assets/110384828/0f1306f3-4b6d-4167-bb8b-2633c6c87860)
+    ![image](https://github.com/mbsaloka/ASCII-Maze-Runner/assets/110384828/a924aa7f-ba07-45e8-95d2-82da41229d2a)
   - Tampilan setelah ANSI escape sequences diaktifkan:  
-    ![image](https://github.com/mbsaloka/ASCII-Maze-Runner/assets/110384828/35084ef1-a212-4f3a-892c-1db6b12b34da)
+    ![image](https://github.com/mbsaloka/ASCII-Maze-Runner/assets/110384828/9a700afe-7bf3-4ccf-b7c6-6fc60b855dae)
 
 #### Instalasi:
 - Ekstrak file .zip yang sebelumnya didownload.
@@ -40,7 +40,7 @@
 
 ### Development
 #### Dependencies:
-- [Clone source code]().
+- [Clone source code](https://github.com/mbsaloka/ASCII-Maze-Runner.git).
 - Pastikan compiler C (seperti GCC) sudah terinstal di sistem Anda.
 - Karena program memanfaatkan ANSI escape sequences untuk mendukung tampilan, aktifkan ANSI escape sequences terlebih dahulu dengan cara mengetikkan perintah berikut ini di CMD.
   ```
@@ -51,9 +51,9 @@
   reg delete HKCU\Console /v VirtualTerminalLevel /f
   ```
   - Tampilan sebelum ANSI escape sequences diaktifkan:  
-    ![image](https://github.com/mbsaloka/ASCII-Maze-Runner/assets/110384828/0f1306f3-4b6d-4167-bb8b-2633c6c87860)
+    ![image](https://github.com/mbsaloka/ASCII-Maze-Runner/assets/110384828/1b626591-5beb-4684-aeac-5470b578bc12)
   - Tampilan setelah ANSI escape sequences diaktifkan:  
-    ![image](https://github.com/mbsaloka/ASCII-Maze-Runner/assets/110384828/35084ef1-a212-4f3a-892c-1db6b12b34da)
+    ![image](https://github.com/mbsaloka/ASCII-Maze-Runner/assets/110384828/dc65f973-9a02-4307-95fe-d7404b8dc242)
 
 #### Instalasi:
 - Ekstrak file .zip yang sebelumnya didownload.
@@ -80,13 +80,12 @@
 
 ## Screenshot Aplikasi
 ### Menu Utama
-![image](https://github.com/mbsaloka/ASCII-Maze-Runner/assets/110384828/435bf7b0-a3d6-4168-a3da-bf1f12d236eb)
+![image](https://github.com/mbsaloka/ASCII-Maze-Runner/assets/110384828/e2f43cca-3cdc-43f0-b69a-4c6e0ef18bb3)
 
 ### In Game
 ![image](https://github.com/mbsaloka/ASCII-Maze-Runner/assets/110384828/cb5e60f2-0749-429b-9cb2-e257bd09765a)
 ![image](https://github.com/mbsaloka/ASCII-Maze-Runner/assets/110384828/99e46a74-94d8-44a5-8862-993d3812a032)
 ![image](https://github.com/mbsaloka/ASCII-Maze-Runner/assets/110384828/b7655579-4cb2-40f2-9930-ef34f47a555c)
-![image](https://github.com/mbsaloka/ASCII-Maze-Runner/assets/110384828/8ce549a8-e386-4658-8a6c-563cecc03974)
 ![image](https://github.com/mbsaloka/ASCII-Maze-Runner/assets/110384828/b0ceb6a2-14cb-497e-ac14-7acd755612fb)
 
 ### Game Over
@@ -94,7 +93,11 @@
 ![image](https://github.com/mbsaloka/ASCII-Maze-Runner/assets/110384828/0cd19946-1584-4920-b10a-05e21b52c548)
 
 ### Cheat Aktif
+![image](https://github.com/mbsaloka/ASCII-Maze-Runner/assets/110384828/8ce549a8-e386-4658-8a6c-563cecc03974)
 ![image](https://github.com/mbsaloka/ASCII-Maze-Runner/assets/110384828/4e0469d1-2679-47c6-bba4-c57764510511)
+
+### Pilih Warna Karakter
+![image](https://github.com/mbsaloka/ASCII-Maze-Runner/assets/110384828/4cf017cb-8d36-4963-b589-c96a8cb6e311)
 
 ### Scoreboard
 ![image](https://github.com/mbsaloka/ASCII-Maze-Runner/assets/110384828/7df55589-f041-4273-8846-76c5bb81dc69)
@@ -102,6 +105,3 @@
 ## Pengembang
 Proyek ini dikembangkan oleh:  
 [Buyung Saloka](https://instagram.com/mbsaloka)
-
-
-
