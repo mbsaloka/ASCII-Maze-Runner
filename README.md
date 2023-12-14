@@ -20,7 +20,7 @@
 ## Cara Instalasi
 ### Quick Run
 #### Dependencies:
-- Download executable file (ASCII-Maze-Runner-v1.0.0.zip) [di sini](https://github.com/mbsaloka/ASCII-Maze-Runner/releases/tag/v1.0.0).
+- Download executable file (ASCII-Maze-Runner-v1.1.0.zip) [di sini](https://github.com/mbsaloka/ASCII-Maze-Runner/releases/tag/v1.1.0).
 - Karena program memanfaatkan ANSI escape sequences untuk mendukung tampilan, aktifkan ANSI escape sequences terlebih dahulu dengan cara mengetikkan perintah berikut ini di CMD.
   ```
   reg add HKCU\Console /v VirtualTerminalLevel /t REG_DWORD /d 1
@@ -67,14 +67,15 @@
 2. Di menu utama, pilih ```START GAME``` untuk memulai game atau pilih ```Lihat Scoreboard``` untuk menampilkan scoreboard.
 3. Gunakan arrow atas dan bawah serta ```Enter``` pada keyboard untuk menentukan pilihan.
 4. Untuk menggerakkan karakter dalam game, gunakan tombol ```WASD``` untuk bergerak ke atas, kiri, bawah, dan kanan.
-5. ```>``` adalah karakter milik player.
-6. ```#``` adalah dinding labirin yang tidak dapat dilalui.
-7. ```?``` adalah area yang bisa dilewati. Namun hati-hati, karena bisa saja petak tersebut aman, tetapi bisa saja terdapat monster yang bersembunyi.
-8. ```*``` adalah monster yang akan bersembunyi di sepanjang labirin.
-9. ```.``` adalah area yang sudah dilewati dan aman.
-10. ```N``` adalah jalan keluar untuk menuju ke level selanjutnya
-11. Tekan ```Esc``` untuk kembali ke halaman sebelumnya.
-12. Tekan ```1``` untuk mengaktifkan cheat.
+5. Di bagian bawah, terdapat indikator banyak monster yang berada di radius 1 petak di sekitar player.
+6. ```>``` adalah karakter milik player.
+7. ```#``` adalah dinding labirin yang tidak dapat dilalui.
+8. ```?``` adalah area yang bisa dilewati. Namun hati-hati, karena bisa saja petak tersebut aman, tetapi bisa saja terdapat monster yang bersembunyi.
+9. ```*``` adalah monster yang akan bersembunyi di sepanjang labirin.
+10. ```.``` adalah area yang sudah dilewati dan aman.
+11. ```N``` adalah jalan keluar untuk menuju ke level selanjutnya
+12. Tekan ```Esc``` untuk kembali ke halaman sebelumnya.
+13. Tekan ```1``` untuk mengaktifkan cheat.
 14. Selesaikan tiap level labirin dan hindarilah monster-monster yang bersembunyi.
 15. Teruslah bergerak dan lihat seberapa lama Anda bisa bertahan!
 
@@ -83,18 +84,18 @@
 ![image](https://github.com/mbsaloka/ASCII-Maze-Runner/assets/110384828/e2f43cca-3cdc-43f0-b69a-4c6e0ef18bb3)
 
 ### In Game
-![image](https://github.com/mbsaloka/ASCII-Maze-Runner/assets/110384828/cb5e60f2-0749-429b-9cb2-e257bd09765a)
-![image](https://github.com/mbsaloka/ASCII-Maze-Runner/assets/110384828/99e46a74-94d8-44a5-8862-993d3812a032)
-![image](https://github.com/mbsaloka/ASCII-Maze-Runner/assets/110384828/b7655579-4cb2-40f2-9930-ef34f47a555c)
-![image](https://github.com/mbsaloka/ASCII-Maze-Runner/assets/110384828/b0ceb6a2-14cb-497e-ac14-7acd755612fb)
+![image](https://github.com/mbsaloka/ASCII-Maze-Runner/assets/110384828/b96aa7e3-1c04-44be-90f3-f06c491907e3)
+![image](https://github.com/mbsaloka/ASCII-Maze-Runner/assets/110384828/ddb6d123-c54c-4ed2-8c13-0a0f50dd0605)
+![image](https://github.com/mbsaloka/ASCII-Maze-Runner/assets/110384828/958a3f2c-eee7-4db0-a70c-8c00e969a342)
+![image](https://github.com/mbsaloka/ASCII-Maze-Runner/assets/110384828/6ed61c10-bee5-46bf-a7ca-a6d47a2fb4fa)
 
 ### Game Over
 ![image](https://github.com/mbsaloka/ASCII-Maze-Runner/assets/110384828/32432784-211b-43fa-b6b8-e4757e3d3bd5)
 ![image](https://github.com/mbsaloka/ASCII-Maze-Runner/assets/110384828/0cd19946-1584-4920-b10a-05e21b52c548)
 
 ### Cheat Aktif
-![image](https://github.com/mbsaloka/ASCII-Maze-Runner/assets/110384828/8ce549a8-e386-4658-8a6c-563cecc03974)
-![image](https://github.com/mbsaloka/ASCII-Maze-Runner/assets/110384828/4e0469d1-2679-47c6-bba4-c57764510511)
+![image](https://github.com/mbsaloka/ASCII-Maze-Runner/assets/110384828/d7aa241d-22a8-410c-8cc8-09d32945d6d7)
+![image](https://github.com/mbsaloka/ASCII-Maze-Runner/assets/110384828/6314606b-0e40-4a55-af91-0d0bb0239cf0)
 
 ### Pilih Warna Karakter
 ![image](https://github.com/mbsaloka/ASCII-Maze-Runner/assets/110384828/4cf017cb-8d36-4963-b589-c96a8cb6e311)
