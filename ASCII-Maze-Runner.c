@@ -28,7 +28,7 @@
 #define clearScreen() printf("\x1b[2J\x1b[H")
 
 typedef struct player_s {
-    int Y, X, gameChar, level, status;
+    int Y, X, gameChar, level, status, monsterNear;
     char color[50];
 } Player;
 
@@ -46,7 +46,7 @@ int cheatToggle = 0;
 
 void generateHiddenGrid() {
     int randRow, randCol, startRow, startCol;
-    int pathCount = 0, wallCount = 0, bomCount = 0;
+    int pathCount = 0, wallCount = 0, monsterCount = 0;
     int loopCheck = 0;
 
     for (int i = 0; i < N; i++) {
@@ -151,11 +151,11 @@ void generateHiddenGrid() {
         }
     }
 
-    while (bomCount < MONSTER) {
+    while (monsterCount < MONSTER) {
         randRow = rand() % 20;
         randCol = rand() % 20;
         if (hiddenGrid[randRow][randCol] == '?') {
-            bomCount++;
+            monsterCount++;
             hiddenGrid[randRow][randCol] = '*';
         }
     }
@@ -278,13 +278,24 @@ void printPlayer(int pastY, int pastX, int moveY, int moveX) {
 void printMsg(int msgCode) {
     switch (msgCode) {
     case 1:
-        printf("Move : WASD");
+        printf("Monster Near : %d", hero.monsterNear);
         break;
     case 2:
         printf("GAME OVER! You Eaten by Monster!\n");
         break;
     default:
         break;
+    }
+}
+
+void countMonsterNear() {
+    hero.monsterNear = 0;
+    for (int i = hero.Y - 1; i <= hero.Y + 1; i++) {
+        for (int j = hero.X - 1; j <= hero.X + 1; j++) {
+            if (hiddenGrid[i][j] == '*') {
+                hero.monsterNear++;
+            }
+        }
     }
 }
 
@@ -365,9 +376,10 @@ int move() {
                 grid[nextRow][nextCol] = hero.gameChar;
 
                 printPlayer(hero.Y, hero.X, nextRow - hero.Y, nextCol - hero.X);
-                printMsg(1);
                 hero.Y = nextRow;
                 hero.X = nextCol;
+                countMonsterNear();
+                printMsg(1);
             }
         }
     }
@@ -535,6 +547,7 @@ void playGame() {
         clearScreen();
         generateHiddenGrid();
         generateGrid();
+        countMonsterNear();
         cheatToggle = 0;
         printGrid(grid);
         printMsg(1);
